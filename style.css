@@ -9,83 +9,114 @@ html, body {
     height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
+  
 }
 
 /* Contenedor del carrusel como fondo */
 .background-carousel {
-    position: absolute; /* Cambiado a absolute */
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100vw;        /* Usar unidad de viewport para asegurar el ancho total */
+    height: 100vh;       /* Usar unidad de viewport para asegurar la altura total */
     z-index: -1;
+    overflow: hidden;    /* Evitar barras de scroll si hay contenido fuera */
 }
 
+/* Imágenes dentro del carrusel */
 .background-carousel img {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;              /* Cubre el contenedor manteniendo aspecto */
+    top: 0; 
+    left: 0;
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
+    user-select: none;              /* Evitar selección que puede interferir */
+    pointer-events: none;           /* Evitar que las imágenes capten eventos de mouse */
+    
 }
 
 .background-carousel img.active {
     opacity: 1;
 }
+/* Media Queries para ajustar el comportamiento en pantallas pequeñas */
+@media (max-width: 768px) {
+    .background-carousel img {
+        width: 100vw;
+        height: 100vh;          
+        object-fit: cover;
+    }
+}
+
 
 /* Contenido sobre el carrusel */
 .content {
     position: relative;
     z-index: 10;
-    height: auto; /* Cambiado a auto */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 210px;
+    padding: 10% 5%; /* Usar porcentajes para el padding */
     text-align: center;
     background: rgba(46, 134, 193, 0.4);
     border-radius: 0px 300px 300px 0px;
-    max-width: 700px; /* Limitar el ancho máximo */
     margin: 0 auto; /* Centrar el contenido */
-    left: -322px;
+    min-width: 200px;
+    
 }
 
+/* Títulos */
 h1 {
-    font-size: 3em;
+    font-size: 6vw; /* Tamaño de fuente relativo al ancho de la ventana */
+    max-font-size: 3em; /* Tamaño máximo para pantallas grandes */
     margin-bottom: 0.4em;
     text-shadow: 0 2px 6px rgba(0,0,0,0.7);
 }
 
+/* Párrafos */
 p {
-    font-size: 1.3em;
+    font-size: 4vw; /* Tamaño de fuente relativo al ancho de la ventana */
+    max-font-size: 1.3em; /* Tamaño máximo para pantallas grandes */
     max-width: 600px;
     line-height: 1.4;
     text-shadow: 0 1px 4px rgba(0,0,0,0.7);
 }
 
-/* Responsive para móviles */
-@media (max-width: 600px) {
+/* Media Queries para ajustes responsivos */
+@media (max-width: 768px) {
+    .content {
+        padding: -15% -5%; /* Ajustar el padding en pantallas más pequeñas */
+    }
     h1 {
-        font-size: 2em;
+        font-size: 8vw; /* Aumentar el tamaño de fuente en pantallas pequeñas */
     }
     p {
-        font-size: 1em;
-        max-width: 90%;
-    }
-    .content {
-        padding: 10px; /* Reducir el padding en móviles */
+        font-size: 5vw; /* Aumentar el tamaño de fuente en pantallas pequeñas */
     }
 }
 
-/* Estilos para el menú de navegación */
+@media (max-width: 480px) {
+    .content {
+        padding: -20% -5%; /* Aumentar el padding en móviles */
+    }
+    h1 {
+        font-size: 12vw; /* Aumentar aún más el tamaño de fuente en móviles */
+    }
+    p {
+        font-size: 6vw; /* Aumentar aún más el tamaño de fuente en móviles */
+    }
+}
+
 nav {
     background-color: rgb(0, 63, 235);
     display: flex;
     flex-direction: row;  
     justify-content: flex-end; /* Cambiar a flex-end para alinear a la derecha */
     flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
+    min-width: 200px;
 }
 
 .nav-link {
@@ -100,6 +131,12 @@ nav {
 
 .nav-link:hover {
     background-color: #01a7e5;
+}
+@media(max-width: 405px ){
+  .nav-link{
+    font-size: 15px;
+    padding: 15px 15px;
+  }
 }
 
 /* Ajustes para el logo */
@@ -137,6 +174,14 @@ nav {
 .dropdown label:hover {
     background-color: #01a7e5;
 }
+@media (max-width: 405px) {
+  
+    .dropdown label{
+      font-size: 15px;
+      padding: 15px 15px;
+    }
+  
+}
 
 .dropdown-menu {
     display: none;
@@ -173,16 +218,8 @@ nav {
     }
 }
 
-/* Ajustes para el carrusel en pantallas pequeñas */
-@media (max-width: 768px) {
-    .background-carousel {
-        height: 50vh; /* Reducir la altura del carrusel */
-    }
-    .content {
-        height: auto; /* Permitir que el contenido se ajuste */
-        padding: 20px; /* Ajustar el padding */
-    }
-}
+
+
 
 
 
