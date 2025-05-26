@@ -65,6 +65,7 @@ html, body {
     border-radius: 0px 300px 300px 0px;
     margin: 0 auto; /* Centrar el contenido */
     min-width: 200px;
+    height:100vh;
     
 }
 
@@ -89,6 +90,7 @@ p {
 @media (max-width: 768px) {
     .content {
         padding: -15% -5%; /* Ajustar el padding en pantallas más pequeñas */
+        height: 100vh;
     }
     h1 {
         font-size: 8vw; /* Aumentar el tamaño de fuente en pantallas pequeñas */
