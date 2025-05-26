@@ -139,13 +139,28 @@ nav {
   }
 }
 
-/* Ajustes para el logo */
+/* Logo posicionado a la izquierda independientemente */
 .logo {
-    font-size: 30px; /* Reducir el tamaño del logo */
-    text-align: center; /* Centrar el logo */
+    font-size: 2rem; /* tamaño relativo para responsividad */
     font-weight: bold;
     text-transform: uppercase;
-    line-height: 50px;
+    line-height: 1.2;
+    position: absolute; /* posición absoluta dentro del nav */
+    left: 0.5rem; /* pequeño margen izquierdo */
+    top: 4%; /* centrar verticalmente */
+    transform: translateY(-50%);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    color: white;
+    
+}
+/* Resposive: Ajustar logo en pantallas pequeñas */
+@media (max-width: 600px) {
+    .logo {
+        font-size: 1.5rem;
+    }
 }
 
 /* Dropdown */
@@ -217,6 +232,7 @@ nav {
         min-width: 140px;
     }
 }
+
 
 
 
