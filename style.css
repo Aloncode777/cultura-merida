@@ -151,7 +151,7 @@ nav {
     line-height: 1.2;
     position: absolute; /* posición absoluta dentro del nav */
     left: 0.5rem; /* pequeño margen izquierdo */
-    top:6%; /* centrar verticalmente */
+    top:3%; /* centrar verticalmente */
     transform: translateY(-50%);
     white-space: nowrap;
     overflow: hidden;
